@@ -29,7 +29,7 @@ module.exports = () => {
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
-        name: "J.A.T.E",
+        name: "Just Another Text Editor",
         short_name: "J.A.T.E",
         description:
           "Take some super sweet notes using JavaScript syntax highlighting!",
