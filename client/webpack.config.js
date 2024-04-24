@@ -23,8 +23,8 @@ module.exports = () => {
         tite: "J.A.T.E",
       }),
       new InjectManifest({
-        swSrc: "./src.sw,js",
-        swDest: "sw.js",
+        swSrc: "./src-sw.js",
+        swDest: "src-sw.js",
       }),
       new WebpackPwaManifest({
         fingerprints: false,
@@ -61,7 +61,7 @@ module.exports = () => {
               presets: ["@babel/preset-env"],
               plugins: [
                 "@babel/plugin-proposal-object-rest-spread",
-                "@babel/transfrom-runtime",
+                "@babel/transform-runtime",
               ],
             },
           },
