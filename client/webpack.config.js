@@ -4,7 +4,9 @@ const path = require("path");
 const { InjectManifest } = require("workbox-webpack-plugin");
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
+const WorkboxPlugin = require("workbox-webpack-plugin");
 // TODO: Add CSS loaders and babel to webpack.
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = () => {
   return {
@@ -22,6 +24,11 @@ module.exports = () => {
         template: "./index.html",
         tite: "J.A.T.E",
       }),
+      new MiniCssExtractPlugin(),
+      new InjectManifest({
+        swSrc: "./src-sw.js",
+        swDest: "src-sw.js",
+      }),
       new InjectManifest({
         swSrc: "./src-sw.js",
         swDest: "src-sw.js",
@@ -33,12 +40,13 @@ module.exports = () => {
         short_name: "J.A.T.E",
         description:
           "Take some super sweet notes using JavaScript syntax highlighting!",
-        background_color: "#01579b",
-        theme_color: "#01579b",
+        background_color: "#AEC3B0",
+        theme_color: "#598392",
         start_url: "/",
+        publicPath: "/",
         icons: [
           {
-            src: path.resolve("src/assets/icons/icon-512x512.png"),
+            src: path.resolve("src/images/logo.png"),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join("assets", "icons"),
           },
